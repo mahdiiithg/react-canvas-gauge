@@ -1,6 +1,6 @@
 {
   "name": "react-canvas-gauge-3d",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A customizable canvas-based gauge component for React with dark mode, alerts, range indicators, and animation support",
   "keywords": [
     "react",
