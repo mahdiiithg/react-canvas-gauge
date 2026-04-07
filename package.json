@@ -1,6 +1,6 @@
 {
   "name": "react-canvas-gauge",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A customizable canvas-based gauge component for React with dark mode, alerts, range indicators, and animation support",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
