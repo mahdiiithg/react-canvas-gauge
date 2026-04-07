@@ -1,8 +1,8 @@
-# react-canvas-gauge
+# react-canvas-gauge-3d
 
-[![npm version](https://img.shields.io/npm/v/react-canvas-gauge.svg)](https://www.npmjs.com/package/react-canvas-gauge)
-[![npm downloads](https://img.shields.io/npm/dm/react-canvas-gauge.svg)](https://www.npmjs.com/package/react-canvas-gauge)
-[![license](https://img.shields.io/npm/l/react-canvas-gauge.svg)](https://github.com/mahdiiithg/react-canvas-gauge/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/react-canvas-gauge-3d.svg)](https://www.npmjs.com/package/react-canvas-gauge-3d)
+[![npm downloads](https://img.shields.io/npm/dm/react-canvas-gauge-3d.svg)](https://www.npmjs.com/package/react-canvas-gauge-3d)
+[![license](https://img.shields.io/npm/l/react-canvas-gauge-3d.svg)](https://github.com/mahdiiithg/react-canvas-gauge/blob/main/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/mahdiiithg/react-canvas-gauge.svg)](https://github.com/mahdiiithg/react-canvas-gauge)
 
 A customizable, canvas-based gauge component for React. Features include dark mode support, alert zones, range indicators, smooth animations, and render prop extensibility. Perfect for dashboards, monitoring panels, and data visualization applications.
@@ -27,13 +27,13 @@ A customizable, canvas-based gauge component for React. Features include dark mo
 
 ```bash
 # npm
-npm install react-canvas-gauge
+npm install react-canvas-gauge-3d
 
 # yarn
-yarn add react-canvas-gauge
+yarn add react-canvas-gauge-3d
 
 # pnpm
-pnpm add react-canvas-gauge
+pnpm add react-canvas-gauge-3d
 ```
 
 ### Peer Dependencies
@@ -47,7 +47,7 @@ npm install react react-dom
 ## Quick Start
 
 ```jsx
-import { Gauge } from 'react-canvas-gauge';
+import { Gauge } from 'react-canvas-gauge-3d';
 
 function App() {
   return (
@@ -254,7 +254,7 @@ import {
   SettingsIcon,    // Settings gear SVG icon
   AlarmOnIcon,     // Alarm on SVG icon
   AlarmOffIcon,    // Alarm off SVG icon
-} from 'react-canvas-gauge';
+} from 'react-canvas-gauge-3d';
 
 // useElementSize example
 const { elementRef, elementSize } = useElementSize();
@@ -282,7 +282,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Links
 
 - [GitHub Repository](https://github.com/mahdiiithg/react-canvas-gauge)
-- [npm Package](https://www.npmjs.com/package/react-canvas-gauge)
+- [npm Package](https://www.npmjs.com/package/react-canvas-gauge-3d)
 - [Issue Tracker](https://github.com/mahdiiithg/react-canvas-gauge/issues)
 - [Changelog](CHANGELOG.md)
 

@@ -1,27 +1,7 @@
 {
-  "name": "react-canvas-gauge",
-  "version": "1.0.3",
+  "name": "react-canvas-gauge-3d",
+  "version": "1.0.0",
   "description": "A customizable canvas-based gauge component for React with dark mode, alerts, range indicators, and animation support",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "source": "src/index.js",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "prepublishOnly": "npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mahdiiithg/react-canvas-gauge.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mahdiiithg/react-canvas-gauge/issues"
-  },
-  "homepage": "https://github.com/mahdiiithg/react-canvas-gauge#readme",
   "keywords": [
     "react",
     "gauge",
@@ -36,8 +16,29 @@
     "alert",
     "component"
   ],
-  "author": "Mahdi Tahavorgar <https://github.com/mahdiiithg>",
+  "homepage": "https://github.com/mahdiiithg/react-canvas-gauge#readme",
+  "bugs": {
+    "url": "https://github.com/mahdiiithg/react-canvas-gauge/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahdiiithg/react-canvas-gauge.git"
+  },
   "license": "MIT",
+  "author": "Mahdi Tahavorgar <https://github.com/mahdiiithg>",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "source": "src/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "prepublishOnly": "npm run build"
+  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
