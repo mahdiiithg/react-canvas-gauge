@@ -1,0 +1,55 @@
+{
+  "name": "react-canvas-gauge",
+  "version": "1.0.0",
+  "description": "A customizable canvas-based gauge component for React with dark mode, alerts, range indicators, and animation support",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "source": "src/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahdiiithg/react-canvas-gauge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mahdiiithg/react-canvas-gauge/issues"
+  },
+  "homepage": "https://github.com/mahdiiithg/react-canvas-gauge#readme",
+  "keywords": [
+    "react",
+    "gauge",
+    "canvas",
+    "chart",
+    "speedometer",
+    "meter",
+    "dial",
+    "dashboard",
+    "visualization",
+    "dark-mode",
+    "alert",
+    "component"
+  ],
+  "author": "Mahdi Tahavorgar <https://github.com/mahdiiithg>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "@babel/preset-react": "^7.23.3",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "rollup": "^4.12.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4"
+  }
+}
