@@ -24,19 +24,20 @@ const SettingsPanel = ({
     onSave(localSettings);
   };
 
-  const panelSize = Math.max(180, size * 0.85);
-  const fontSize = Math.max(11, size * 0.045);
-  const inputHeight = Math.max(24, size * 0.1);
+  const panelWidth = Math.max(280, size * 1.4);
+  const panelHeight = Math.max(350, size * 1.6);
+  const fontSize = Math.max(12, size * 0.05);
+  const inputHeight = Math.max(28, size * 0.1);
 
   return (
     <div
       style={{
         backgroundColor: isDarkMode ? '#2a2a2a' : '#ffffff',
         borderRadius: '12px',
-        padding: `${size * 0.06}px`,
-        boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-        width: panelSize,
-        maxHeight: panelSize,
+        padding: `${size * 0.08}px`,
+        boxShadow: '0 8px 32px rgba(0,0,0,0.35)',
+        width: panelWidth,
+        maxHeight: panelHeight,
         overflowY: 'auto',
         color: isDarkMode ? '#fff' : '#333',
         fontSize: `${fontSize}px`,
@@ -67,10 +68,20 @@ const SettingsPanel = ({
         </button>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: `${size * 0.035}px` }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: `${size * 0.045}px` }}>
         {Object.entries(settingsConfig).map(([key, config]) => (
-          <div key={key} style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
-            <label style={{ fontSize: `${fontSize * 0.9}px`, color: isDarkMode ? '#ccc' : '#666' }}>
+          <div key={key} style={{ 
+            display: 'flex', 
+            flexDirection: config.type === 'toggle' ? 'row' : 'column',
+            alignItems: config.type === 'toggle' ? 'center' : 'stretch',
+            justifyContent: config.type === 'toggle' ? 'space-between' : 'flex-start',
+            gap: config.type === 'toggle' ? '12px' : '4px',
+          }}>
+            <label style={{ 
+              fontSize: `${fontSize * 0.95}px`, 
+              color: isDarkMode ? '#ccc' : '#555',
+              fontWeight: 500,
+            }}>
               {config.label || key}
             </label>
             {config.type === 'select' ? (
@@ -79,12 +90,13 @@ const SettingsPanel = ({
                 onChange={(e) => handleChange(key, e.target.value)}
                 style={{
                   height: inputHeight,
-                  padding: '0 8px',
-                  borderRadius: '6px',
+                  padding: '0 10px',
+                  borderRadius: '8px',
                   border: `1px solid ${isDarkMode ? '#555' : '#ccc'}`,
                   backgroundColor: isDarkMode ? '#3a3a3a' : '#fff',
                   color: isDarkMode ? '#fff' : '#333',
                   fontSize: `${fontSize}px`,
+                  outline: 'none',
                 }}
               >
                 {config.options?.map((opt) => (
@@ -94,15 +106,29 @@ const SettingsPanel = ({
                 ))}
               </select>
             ) : config.type === 'toggle' ? (
-              <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
-                <input
-                  type="checkbox"
-                  checked={localSettings[key] ?? false}
-                  onChange={(e) => handleChange(key, e.target.checked)}
-                  style={{ width: '16px', height: '16px' }}
-                />
-                <span style={{ fontSize: `${fontSize * 0.9}px` }}>{localSettings[key] ? 'On' : 'Off'}</span>
-              </label>
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center',
+                backgroundColor: localSettings[key] ? '#1890ff' : (isDarkMode ? '#555' : '#ccc'),
+                borderRadius: '14px',
+                padding: '2px',
+                width: '44px',
+                height: '24px',
+                cursor: 'pointer',
+                transition: 'background-color 0.2s',
+              }}
+                onClick={() => handleChange(key, !localSettings[key])}
+              >
+                <div style={{
+                  width: '20px',
+                  height: '20px',
+                  borderRadius: '50%',
+                  backgroundColor: '#fff',
+                  transform: localSettings[key] ? 'translateX(20px)' : 'translateX(0)',
+                  transition: 'transform 0.2s',
+                  boxShadow: '0 1px 3px rgba(0,0,0,0.3)',
+                }} />
+              </div>
             ) : (
               <input
                 type={config.type === 'number' ? 'number' : 'text'}
@@ -113,12 +139,13 @@ const SettingsPanel = ({
                 step={config.step}
                 style={{
                   height: inputHeight,
-                  padding: '0 8px',
-                  borderRadius: '6px',
+                  padding: '0 10px',
+                  borderRadius: '8px',
                   border: `1px solid ${isDarkMode ? '#555' : '#ccc'}`,
                   backgroundColor: isDarkMode ? '#3a3a3a' : '#fff',
                   color: isDarkMode ? '#fff' : '#333',
                   fontSize: `${fontSize}px`,
+                  outline: 'none',
                 }}
               />
             )}
@@ -128,23 +155,27 @@ const SettingsPanel = ({
 
       <div style={{ 
         display: 'flex', 
-        gap: '8px', 
-        marginTop: `${size * 0.05}px`,
-        paddingTop: `${size * 0.03}px`,
+        gap: '12px', 
+        marginTop: `${size * 0.06}px`,
+        paddingTop: `${size * 0.04}px`,
         borderTop: `1px solid ${isDarkMode ? '#444' : '#ddd'}`,
       }}>
         <button
           onClick={onCancel}
           style={{
             flex: 1,
-            padding: `${size * 0.03}px`,
-            borderRadius: '6px',
+            padding: `${size * 0.04}px`,
+            borderRadius: '8px',
             border: `1px solid ${isDarkMode ? '#555' : '#ccc'}`,
             backgroundColor: isDarkMode ? '#3a3a3a' : '#f5f5f5',
             color: isDarkMode ? '#fff' : '#333',
             cursor: 'pointer',
             fontSize: `${fontSize}px`,
+            fontWeight: 500,
+            transition: 'background-color 0.2s',
           }}
+          onMouseOver={(e) => e.target.style.backgroundColor = isDarkMode ? '#444' : '#e8e8e8'}
+          onMouseOut={(e) => e.target.style.backgroundColor = isDarkMode ? '#3a3a3a' : '#f5f5f5'}
         >
           Cancel
         </button>
@@ -152,14 +183,18 @@ const SettingsPanel = ({
           onClick={handleSave}
           style={{
             flex: 1,
-            padding: `${size * 0.03}px`,
-            borderRadius: '6px',
+            padding: `${size * 0.04}px`,
+            borderRadius: '8px',
             border: 'none',
             backgroundColor: '#1890ff',
             color: '#fff',
             cursor: 'pointer',
             fontSize: `${fontSize}px`,
+            fontWeight: 500,
+            transition: 'background-color 0.2s',
           }}
+          onMouseOver={(e) => e.target.style.backgroundColor = '#40a9ff'}
+          onMouseOut={(e) => e.target.style.backgroundColor = '#1890ff'}
         >
           Save
         </button>

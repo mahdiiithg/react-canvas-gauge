@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2026-04-08
+
+### Added
+- Range settings support in settings panel (`showRange`, `rangeMin`, `rangeMax`)
+
+### Improved
+- Settings panel is now larger and easier to use without scrolling
+- Better toggle switch styling with smooth animation
+- Improved button hover effects
+- Better spacing and visual hierarchy in settings panel
+
 ## [1.2.0] - 2026-04-08
 
 ### Added

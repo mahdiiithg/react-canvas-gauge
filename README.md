@@ -274,6 +274,8 @@ Hover over the center circle and click the settings icon to open the panel:
     maxValue: { type: 'number', label: 'Max Value', min: 0, max: 1000 },
     alertHigh: { type: 'number', label: 'High Alert', min: 0, max: 1000 },
     alertLow: { type: 'number', label: 'Low Alert', min: 0, max: 1000 },
+    rangeMin: { type: 'number', label: 'Range Min', min: 0, max: 1000 },
+    rangeMax: { type: 'number', label: 'Range Max', min: 0, max: 1000 },
     unit: { 
       type: 'select', 
       label: 'Unit',
@@ -284,6 +286,7 @@ Hover over the center circle and click the settings icon to open the panel:
       ]
     },
     alertEnabled: { type: 'toggle', label: 'Enable Alerts' },
+    showRange: { type: 'toggle', label: 'Show Range' },
   }}
   
   // Callback when user saves settings
