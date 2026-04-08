@@ -130,6 +130,31 @@ function App() {
 | `disableEditButton` | `boolean` | `false` | Hide the edit button |
 | `onEditClick` | `function` | - | Callback when edit button is clicked |
 
+### Built-in Settings Panel Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `settingsConfig` | `object` | - | Configuration for editable fields (see below) |
+| `onSettingsChange` | `function` | - | Callback when settings are saved `(settings) => void` |
+
+#### settingsConfig Format
+
+```javascript
+{
+  fieldName: {
+    type: 'number' | 'text' | 'select' | 'toggle',
+    label: 'Display Label',
+    min: 0,           // for number type
+    max: 100,         // for number type
+    step: 1,          // for number type
+    options: [        // for select type
+      { value: 'opt1', label: 'Option 1' },
+      { value: 'opt2', label: 'Option 2' },
+    ]
+  }
+}
+```
+
 ### Render Props (Extensibility)
 
 | Prop | Type | Description |
@@ -225,6 +250,48 @@ function App() {
       <button onClick={onClose}>Close</button>
     </div>
   )}
+/>
+```
+
+### With Built-in Settings Panel
+
+Hover over the center circle and click the settings icon to open the panel:
+
+```jsx
+<Gauge
+  value={75}
+  minValue={0}
+  maxValue={100}
+  label="Temperature"
+  unit="°C"
+  alertEnabled={true}
+  alertHigh={80}
+  alertLow={20}
+  
+  // Configure which fields are editable
+  settingsConfig={{
+    minValue: { type: 'number', label: 'Min Value', min: 0, max: 1000 },
+    maxValue: { type: 'number', label: 'Max Value', min: 0, max: 1000 },
+    alertHigh: { type: 'number', label: 'High Alert', min: 0, max: 1000 },
+    alertLow: { type: 'number', label: 'Low Alert', min: 0, max: 1000 },
+    unit: { 
+      type: 'select', 
+      label: 'Unit',
+      options: [
+        { value: '°C', label: 'Celsius' },
+        { value: '°F', label: 'Fahrenheit' },
+        { value: 'K', label: 'Kelvin' },
+      ]
+    },
+    alertEnabled: { type: 'toggle', label: 'Enable Alerts' },
+  }}
+  
+  // Callback when user saves settings
+  onSettingsChange={(settings) => {
+    console.log('New settings:', settings);
+    // Update your state or call API
+    updateGaugeSettings(gaugeId, settings);
+  }}
 />
 ```
 
